@@ -8,9 +8,8 @@ class ZusSession:
     username: str
     password: str
 
-def authenticate(username: str, 
-                 password: str, 
-                 users:t.Dict[str, str]) -> t.Optional[ZusSession]:
+def authenticate(username: str, password: str, users:t.Dict[str, str]
+                 ) -> t.Optional[ZusSession]:
     if users.get(username) is not None and users.get(username) == password:
         return ZusSession(username, password)
     return None
@@ -18,7 +17,6 @@ def authenticate(username: str,
 def load_users(path:str) -> t.Dict[str, str]:
     with open(path, "r") as f:
         return json.load(f)
-
 
 def main():
     username = input('username:')
